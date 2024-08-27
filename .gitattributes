@@ -1,0 +1,2 @@
+examples/** -diff
+*_gen.go -diff

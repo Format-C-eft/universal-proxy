@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+{{template "head.html"}}
+
+<body class="dark-mode">
+
+    {{template "header.html"}}
+
+    <header>
+        <div class="table-responsive">
+            <table class="table table-dark table-sm table-striped" style="margin-top: 5px;">
+                <tr>
+                    <td>Name: <b>{{.info.Name}}</b></td>
+                    <td>Branch: <b>{{.info.Branch}}</b></td>
+                    <td>Commit hash: <b>{{.info.CommitHash}}</b></td>
+                    <td>Time build: <b>{{.info.TimeBuild}}</b></td>
+                </tr>
+            </table>
+        </div>
+    </header>
+
+    <div class="table-responsive">
+        <table class="table table-dark table-sm table-striped" style="margin-top: 5px;">
+            <thead>
+            <tr>
+                <th rowspan="2" scope="col">#</th>
+                <th colspan="5" scope="col">Mnemonic</th>
+                <th rowspan="2" scope="col">Mark not actual</th>
+            </tr>
+            <tr>
+                <th scope="col">User UUID</th>
+                <th scope="col">Balance</th>
+                <th scope="col">Address</th>
+                <th scope="col">Private</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{ range $index, $val := .wallets }}
+            <tr>
+                <th rowspan="2" scope="row">{{ $index }}</th>
+                <td colspan="5" >{{ .Mnemonic }}</td>
+                <td rowspan="2" >
+                    <a href="/wallets/{{ .UserUUID }}" class="btn btn-primary active" style="width: 100%;" role="button">Mark</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>{{ .UserUUID }}</td>
+                <td>{{ .Balance }}</td>
+                <td>{{ .Address }}</td>
+                <td>p2wpkh:{{ .PrivateKey }}</td>
+            </tr>
+            {{ end }}
+            </tbody>
+        </table>
+    </div>
+
+    {{template "footer.html"}}
+
+    {{template "script.html"}}
+</body>
+
+</html>

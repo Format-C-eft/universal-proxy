@@ -1,0 +1,10 @@
+### ping
+GET /ping
+Host: {{host}}
+Accept: application/json
+x-log-level: debug
+
+###
+GET localhost:8000/sfsdf
+Accept: application/xhtml+xml
+User-Agent: Mozilla/5.0 (compatible; YandexRenderResourcesBot/1.0; +http://yandex.com/bots)

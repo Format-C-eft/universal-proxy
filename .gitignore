@@ -1,0 +1,11 @@
+/.idea
+/.vscode
+/.run
+/bin
+
+.DS_STORE
+.DS_Store
+
+.env
+values_local.yaml
+http-client.private.env.json
